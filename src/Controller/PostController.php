@@ -16,10 +16,10 @@ class PostController extends AbstractController
     /**
      * @Route("/post/{id}", name="post")
      */
-    public function index($id, PostRepository $postRepository): Response
+    public function index($id, Post $post): Response
     {
-        $post = $postRepository // On récupère Doctrine, la methode getDoctrine est une methode hérité de AbstractController
-        ->find($id); // on récupère le post dont l'id correspond à l'id passé en URL
+        // $post = $postRepository // On récupère Doctrine, la methode getDoctrine est une methode hérité de AbstractController
+        // ->find($id); // on récupère le post dont l'id correspond à l'id passé en URL
 
     // si je n'ai pas d'articles à cet id la
     // if (!$post) {
