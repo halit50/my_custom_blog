@@ -22,21 +22,16 @@ class PostController extends AbstractController
         ->find($id); // on récupère le post dont l'id correspond à l'id passé en URL
 
     // si je n'ai pas d'articles à cet id la
-    if (!$post) {
-        // alors je retourne "Pas d'article"
-        return new Response ('Pas d\'article');
+    // if (!$post) {
+    //     // alors je retourne "Pas d'article"
+    //     return new Response ('Pas d\'article');
         
-    }
+    // }
     // dans le cas contraire j'affiche l'article
-   return new Response ('Mon article : <h1>'.$post->getTitle().'</h1>');
+   return $this->render('single_post.html.twig', [
+       'post' => $post
+   ]);
     }
 
-      /**
-     * @Route("/post/{id}/single_post", name="post")
-     */
-
-    public function singlePost ():Response {
-        
-        return new Response ('single_post.html.twig')
-    } 
+     
 }
