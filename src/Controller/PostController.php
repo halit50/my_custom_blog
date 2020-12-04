@@ -16,7 +16,7 @@ class PostController extends AbstractController
     /**
      * @Route("/post/{id}", name="post")
      */
-    public function index($id, Post $post): Response
+    public function showSinglePost($id, Post $post): Response
     {
         // $post = $postRepository // On récupère Doctrine, la methode getDoctrine est une methode hérité de AbstractController
         // ->find($id); // on récupère le post dont l'id correspond à l'id passé en URL
