@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Post;
+use App\Repository\PostRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -15,10 +16,9 @@ class PostController extends AbstractController
     /**
      * @Route("/post/{id}", name="post")
      */
-    public function index($id): Response
+    public function index($id, PostRepository $postRepository): Response
     {
-        $post = $this->getDoctrine() // On récupère Doctrine, la methode getDoctrine est une methode hérité de AbstractController
-        ->getRepository(Post::class) // On récupère le repository correspondant au Post
+        $post = $postRepository // On récupère Doctrine, la methode getDoctrine est une methode hérité de AbstractController
         ->find($id); // on récupère le post dont l'id correspond à l'id passé en URL
 
     // si je n'ai pas d'articles à cet id la
